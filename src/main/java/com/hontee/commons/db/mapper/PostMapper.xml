@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hontee.commons.db.dao.PostMapper" >
+  <resultMap id="BaseResultMap" type="com.hontee.commons.db.entity.Post" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="tags" property="tags" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="hit" property="hit" jdbcType="INTEGER" />
+    <result column="stars" property="stars" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="last_modified" property="lastModified" jdbcType="TIMESTAMP" />
+    <result column="cat_id" property="catId" jdbcType="BIGINT" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="platforms" property="platforms" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, title, description, tags, url, hit, stars, state, created, last_modified, 
+    cat_id, category, platforms, create_by
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hontee.commons.db.entity.PostExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_posts
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_posts
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_posts
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hontee.commons.db.entity.PostExample" >
+    delete from t_posts
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hontee.commons.db.entity.Post" >
+    insert into t_posts (id, name, title, 
+      description, tags, url, 
+      hit, stars, state, 
+      created, last_modified, cat_id, 
+      category, platforms, create_by
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{hit,jdbcType=INTEGER}, #{stars,jdbcType=INTEGER}, #{state,jdbcType=TINYINT}, 
+      #{created,jdbcType=TIMESTAMP}, #{lastModified,jdbcType=TIMESTAMP}, #{catId,jdbcType=BIGINT}, 
+      #{category,jdbcType=VARCHAR}, #{platforms,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Post" >
+    insert into t_posts
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="tags != null" >
+        tags,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="hit != null" >
+        hit,
+      </if>
+      <if test="stars != null" >
+        stars,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="lastModified != null" >
+        last_modified,
+      </if>
+      <if test="catId != null" >
+        cat_id,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="platforms != null" >
+        platforms,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null" >
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="hit != null" >
+        #{hit,jdbcType=INTEGER},
+      </if>
+      <if test="stars != null" >
+        #{stars,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModified != null" >
+        #{lastModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="catId != null" >
+        #{catId,jdbcType=BIGINT},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="platforms != null" >
+        #{platforms,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hontee.commons.db.entity.PostExample" resultType="java.lang.Integer" >
+    select count(*) from t_posts
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_posts
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tags != null" >
+        tags = #{record.tags,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hit != null" >
+        hit = #{record.hit,jdbcType=INTEGER},
+      </if>
+      <if test="record.stars != null" >
+        stars = #{record.stars,jdbcType=INTEGER},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=TINYINT},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastModified != null" >
+        last_modified = #{record.lastModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.catId != null" >
+        cat_id = #{record.catId,jdbcType=BIGINT},
+      </if>
+      <if test="record.category != null" >
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.platforms != null" >
+        platforms = #{record.platforms,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createBy != null" >
+        create_by = #{record.createBy,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_posts
+    set id = #{record.id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      tags = #{record.tags,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      hit = #{record.hit,jdbcType=INTEGER},
+      stars = #{record.stars,jdbcType=INTEGER},
+      state = #{record.state,jdbcType=TINYINT},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      last_modified = #{record.lastModified,jdbcType=TIMESTAMP},
+      cat_id = #{record.catId,jdbcType=BIGINT},
+      category = #{record.category,jdbcType=VARCHAR},
+      platforms = #{record.platforms,jdbcType=VARCHAR},
+      create_by = #{record.createBy,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hontee.commons.db.entity.Post" >
+    update t_posts
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null" >
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="hit != null" >
+        hit = #{hit,jdbcType=INTEGER},
+      </if>
+      <if test="stars != null" >
+        stars = #{stars,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModified != null" >
+        last_modified = #{lastModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="catId != null" >
+        cat_id = #{catId,jdbcType=BIGINT},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="platforms != null" >
+        platforms = #{platforms,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.Post" >
+    update t_posts
+    set name = #{name,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      hit = #{hit,jdbcType=INTEGER},
+      stars = #{stars,jdbcType=INTEGER},
+      state = #{state,jdbcType=TINYINT},
+      created = #{created,jdbcType=TIMESTAMP},
+      last_modified = #{lastModified,jdbcType=TIMESTAMP},
+      cat_id = #{catId,jdbcType=BIGINT},
+      category = #{category,jdbcType=VARCHAR},
+      platforms = #{platforms,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

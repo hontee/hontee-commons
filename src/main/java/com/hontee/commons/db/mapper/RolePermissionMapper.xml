@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hontee.commons.db.dao.RolePermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.hontee.commons.db.entity.RolePermission" >
+    <id column="role_id" property="roleId" jdbcType="BIGINT" />
+    <id column="permission_id" property="permissionId" jdbcType="BIGINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from sys_roles_permissions
+    where role_id = #{roleId,jdbcType=BIGINT}
+      and permission_id = #{permissionId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hontee.commons.db.entity.RolePermission" >
+    insert into sys_roles_permissions (role_id, permission_id, created
+      )
+    values (#{roleId,jdbcType=BIGINT}, #{permissionId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.RolePermission" >
+    update sys_roles_permissions
+    set created = #{created,jdbcType=TIMESTAMP}
+    where role_id = #{roleId,jdbcType=BIGINT}
+      and permission_id = #{permissionId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select role_id, permission_id, created
+    from sys_roles_permissions
+    where role_id = #{roleId,jdbcType=BIGINT}
+      and permission_id = #{permissionId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select role_id, permission_id, created
+    from sys_roles_permissions
+  </select>
+</mapper>

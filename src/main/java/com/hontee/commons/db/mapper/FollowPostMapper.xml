@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hontee.commons.db.dao.FollowPostMapper" >
+  <resultMap id="BaseResultMap" type="com.hontee.commons.db.entity.FollowPost" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <id column="post_id" property="postId" jdbcType="BIGINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from follow_posts
+    where user_id = #{userId,jdbcType=BIGINT}
+      and post_id = #{postId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hontee.commons.db.entity.FollowPost" >
+    insert into follow_posts (user_id, post_id, created
+      )
+    values (#{userId,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.FollowPost" >
+    update follow_posts
+    set created = #{created,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+      and post_id = #{postId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select user_id, post_id, created
+    from follow_posts
+    where user_id = #{userId,jdbcType=BIGINT}
+      and post_id = #{postId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select user_id, post_id, created
+    from follow_posts
+  </select>
+</mapper>

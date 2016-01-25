@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hontee.commons.db.dao.FollowGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.hontee.commons.db.entity.FollowGroup" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <id column="group_id" property="groupId" jdbcType="BIGINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from follow_groups
+    where user_id = #{userId,jdbcType=BIGINT}
+      and group_id = #{groupId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hontee.commons.db.entity.FollowGroup" >
+    insert into follow_groups (user_id, group_id, created
+      )
+    values (#{userId,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.FollowGroup" >
+    update follow_groups
+    set created = #{created,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+      and group_id = #{groupId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select user_id, group_id, created
+    from follow_groups
+    where user_id = #{userId,jdbcType=BIGINT}
+      and group_id = #{groupId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select user_id, group_id, created
+    from follow_groups
+  </select>
+</mapper>

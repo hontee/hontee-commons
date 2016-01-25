@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hontee.commons.db.dao.RoleUserMapper" >
+  <resultMap id="BaseResultMap" type="com.hontee.commons.db.entity.RoleUser" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <id column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from sys_roles_users
+    where user_id = #{userId,jdbcType=BIGINT}
+      and role_id = #{roleId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hontee.commons.db.entity.RoleUser" >
+    insert into sys_roles_users (user_id, role_id, created
+      )
+    values (#{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.RoleUser" >
+    update sys_roles_users
+    set created = #{created,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+      and role_id = #{roleId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select user_id, role_id, created
+    from sys_roles_users
+    where user_id = #{userId,jdbcType=BIGINT}
+      and role_id = #{roleId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select user_id, role_id, created
+    from sys_roles_users
+  </select>
+</mapper>
