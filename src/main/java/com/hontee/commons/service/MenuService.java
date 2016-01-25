@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.hontee.commons.db.entity.Menu;
 import com.hontee.commons.db.entity.MenuExample;
+import com.hontee.commons.support.Pager;
 
-public interface MenuService {
+public interface MenuService extends Pager<Menu, MenuExample> {
 	
 	int countByExample(MenuExample example);
 

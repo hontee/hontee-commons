@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.hontee.commons.db.entity.Share;
 import com.hontee.commons.db.entity.ShareExample;
+import com.hontee.commons.support.Pager;
 
-public interface ShareService {
+public interface ShareService extends Pager<Share, ShareExample> {
 
 	int countByExample(ShareExample example);
 

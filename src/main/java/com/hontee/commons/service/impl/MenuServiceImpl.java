@@ -6,10 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.MenuMapper;
 import com.hontee.commons.db.entity.Menu;
 import com.hontee.commons.db.entity.MenuExample;
 import com.hontee.commons.service.MenuService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class MenuServiceImpl implements MenuService {
@@ -70,6 +73,13 @@ public class MenuServiceImpl implements MenuService {
 	
 	public void updateByPrimaryKey(Menu record) {
 		menuMapper.updateByPrimaryKey(record);
+	}
+
+
+	public PageInfo<Menu> findByExample(MenuExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Menu> list = this.findByExample(example);
+		return new PageInfo<Menu>(list);
 	}
 
 }

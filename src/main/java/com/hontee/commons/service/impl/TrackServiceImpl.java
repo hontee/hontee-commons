@@ -6,10 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.TrackMapper;
 import com.hontee.commons.db.entity.Track;
 import com.hontee.commons.db.entity.TrackExample;
 import com.hontee.commons.service.TrackService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class TrackServiceImpl implements TrackService {
@@ -86,6 +89,13 @@ public class TrackServiceImpl implements TrackService {
 	
 	public void updateByPrimaryKey(Track record) {
 		trackMapper.updateByPrimaryKey(record);
+	}
+
+
+	public PageInfo<Track> findByExample(TrackExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Track> list = this.findByExample(example);
+		return new PageInfo<Track>(list);
 	}
 
 }

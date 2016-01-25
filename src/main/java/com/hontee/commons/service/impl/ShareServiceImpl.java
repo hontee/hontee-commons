@@ -6,10 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.ShareMapper;
 import com.hontee.commons.db.entity.Share;
 import com.hontee.commons.db.entity.ShareExample;
 import com.hontee.commons.service.ShareService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class ShareServiceImpl implements ShareService {
@@ -70,6 +73,13 @@ public class ShareServiceImpl implements ShareService {
 	
 	public void updateByPrimaryKey(Share record) {
 		shareMapper.updateByPrimaryKey(record);		
+	}
+
+
+	public PageInfo<Share> findByExample(ShareExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Share> list = this.findByExample(example);
+		return new PageInfo<Share>(list);
 	}
 
 }

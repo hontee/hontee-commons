@@ -6,10 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.TagMapper;
 import com.hontee.commons.db.entity.Tag;
 import com.hontee.commons.db.entity.TagExample;
 import com.hontee.commons.service.TagService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class TagServiceImpl implements TagService {
@@ -70,6 +73,13 @@ public class TagServiceImpl implements TagService {
 	
 	public void updateByPrimaryKey(Tag record) {
 		tagMapper.updateByPrimaryKey(record);		
+	}
+
+
+	public PageInfo<Tag> findByExample(TagExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Tag> list = this.findByExample(example);
+		return new PageInfo<Tag>(list);
 	}
 
 }

@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.hontee.commons.db.entity.Track;
 import com.hontee.commons.db.entity.TrackExample;
+import com.hontee.commons.support.Pager;
 
-public interface TrackService {
+public interface TrackService extends Pager<Track, TrackExample> {
 	
 	int countByExample(TrackExample example);
 

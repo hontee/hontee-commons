@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.hontee.commons.db.entity.User;
 import com.hontee.commons.db.entity.UserExample;
+import com.hontee.commons.support.Pager;
 
-public interface UserService {
+public interface UserService extends Pager<User, UserExample> {
 	
 	int countByExample(UserExample example);
 

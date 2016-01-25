@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.hontee.commons.db.entity.Role;
 import com.hontee.commons.db.entity.RoleExample;
+import com.hontee.commons.support.Pager;
 
-public interface RoleService {
+public interface RoleService extends Pager<Role, RoleExample> {
 
 	int countByExample(RoleExample example);
 

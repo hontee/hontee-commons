@@ -6,10 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.PermissionMapper;
 import com.hontee.commons.db.entity.Permission;
 import com.hontee.commons.db.entity.PermissionExample;
 import com.hontee.commons.service.PermissionService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class PermissionServiceImpl implements PermissionService {
@@ -70,6 +73,13 @@ public class PermissionServiceImpl implements PermissionService {
 	
 	public void updateByPrimaryKey(Permission record) {
 		permissionMapper.updateByPrimaryKey(record);		
+	}
+
+
+	public PageInfo<Permission> findByExample(PermissionExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Permission> list = this.findByExample(example);
+		return new PageInfo<Permission>(list);
 	}
 
 }

@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.hontee.commons.db.entity.Permission;
 import com.hontee.commons.db.entity.PermissionExample;
+import com.hontee.commons.support.Pager;
 
-public interface PermissionService {
+public interface PermissionService extends Pager<Permission, PermissionExample> {
 	
 	int countByExample(PermissionExample example);
 

@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.hontee.commons.db.entity.Tag;
 import com.hontee.commons.db.entity.TagExample;
+import com.hontee.commons.support.Pager;
 
-public interface TagService {
+public interface TagService extends Pager<Tag, TagExample> {
 	
 	int countByExample(TagExample example);
 

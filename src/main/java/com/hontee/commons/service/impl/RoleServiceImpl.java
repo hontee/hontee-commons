@@ -6,10 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.RoleMapper;
 import com.hontee.commons.db.entity.Role;
 import com.hontee.commons.db.entity.RoleExample;
 import com.hontee.commons.service.RoleService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -65,6 +68,13 @@ public class RoleServiceImpl implements RoleService {
 	
 	public void updateByPrimaryKeySelective(Role record) {
 		roleMapper.updateByPrimaryKeySelective(record);		
+	}
+
+
+	public PageInfo<Role> findByExample(RoleExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Role> list = this.findByExample(example);
+		return new PageInfo<Role>(list);
 	}
 
 }

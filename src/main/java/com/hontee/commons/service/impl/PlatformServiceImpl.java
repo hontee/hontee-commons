@@ -31,8 +31,7 @@ public class PlatformServiceImpl implements PlatformService {
 
 	
 	public Platform findByPrimaryKey(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return platformMapper.selectByPrimaryKey(id);
 	}
 
 	
@@ -44,50 +43,42 @@ public class PlatformServiceImpl implements PlatformService {
 
 	
 	public void deleteByExample(PlatformExample example) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.deleteByExample(example);
 	}
 
 	
 	public void deleteByPrimaryKey(Long id) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.deleteByPrimaryKey(id);
 	}
 
 	
 	public void add(Platform record) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.insert(record);
 	}
 
 	
 	public void addSelective(Platform record) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.insertSelective(record);		
 	}
 
 	
 	public void updateByExampleSelective(Platform record, PlatformExample example) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.updateByExampleSelective(record, example);		
 	}
 
 	
 	public void updateByExample(Platform record, PlatformExample example) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.updateByExample(record, example);		
 	}
 
 	
 	public void updateByPrimaryKeySelective(Platform record) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.updateByPrimaryKeySelective(record);
 	}
 
 	
 	public void updateByPrimaryKey(Platform record) {
-		// TODO Auto-generated method stub
-		
+		platformMapper.updateByPrimaryKey(record);
 	}
 
 }

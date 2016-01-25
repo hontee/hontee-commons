@@ -6,10 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.PostMapper;
 import com.hontee.commons.db.entity.Post;
 import com.hontee.commons.db.entity.PostExample;
 import com.hontee.commons.service.PostService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -70,6 +73,13 @@ public class PostServiceImpl implements PostService {
 	
 	public void updateByPrimaryKey(Post record) {
 		postMapper.updateByPrimaryKey(record);
+	}
+
+
+	public PageInfo<Post> findByExample(PostExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Post> list = this.findByExample(example);
+		return new PageInfo<Post>(list);
 	}
 
 }

@@ -6,12 +6,15 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.GroupMapper;
 import com.hontee.commons.db.dao.GroupPostMapper;
 import com.hontee.commons.db.entity.Group;
 import com.hontee.commons.db.entity.GroupExample;
 import com.hontee.commons.db.entity.GroupPost;
 import com.hontee.commons.service.GroupService;
+import com.hontee.commons.support.Pagination;
 
 @Service
 public class GroupServiceImpl implements GroupService {
@@ -85,6 +88,12 @@ public class GroupServiceImpl implements GroupService {
 	
 	public void followPost(GroupPost record) {
 		gpMapper.insert(record);
+	}
+
+	public PageInfo<Group> findByExample(GroupExample example, Pagination p) {
+		PageHelper.startPage(p.getPage(), p.getSize());
+		List<Group> list = this.findByExample(example);
+		return new PageInfo<Group>(list);
 	}
 
 }
