@@ -14,42 +14,36 @@ import com.hontee.commons.service.FollowService;
 
 @Service
 public class FollowServiceImpl implements FollowService {
-	
+
 	@Resource
 	private FollowGroupMapper fgMapper;
-	
+
 	@Resource
 	private FollowPostMapper fpMapper;
-	
+
 	@Resource
 	private FollowUserMapper fuMapper;
 
-	
 	public void unfollowGroup(Long userId, Long groupId) {
 		fgMapper.deleteByPrimaryKey(userId, groupId);
 	}
 
-	
 	public void followGroup(FollowGroup record) {
 		fgMapper.insert(record);
 	}
 
-	
 	public void unfollowPost(Long userId, Long postId) {
 		fpMapper.deleteByPrimaryKey(userId, postId);
 	}
 
-	
 	public void followPost(FollowPost record) {
 		fpMapper.insert(record);
 	}
 
-	
 	public void unfollowUser(Long userId, Long followId) {
 		fuMapper.deleteByPrimaryKey(userId, followId);
 	}
 
-	
 	public void followUser(FollowUser record) {
 		fuMapper.insert(record);
 	}

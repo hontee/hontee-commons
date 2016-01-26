@@ -17,6 +17,4 @@ public class RoleManagerServiceImpl implements RoleManagerService {
 		return null;
 	}
 
-
-
 }

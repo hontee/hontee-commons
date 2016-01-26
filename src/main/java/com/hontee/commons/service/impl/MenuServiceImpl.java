@@ -16,68 +16,56 @@ import com.hontee.commons.support.Pagination;
 
 @Service
 public class MenuServiceImpl implements MenuService {
-	
+
 	@Resource
 	private MenuMapper menuMapper;
 
-	
 	public int countByExample(MenuExample example) {
 		return menuMapper.countByExample(example);
 	}
 
-	
 	public void deleteByExample(MenuExample example) {
 		menuMapper.deleteByExample(example);
 	}
 
-	
 	public void deleteByPrimaryKey(Long id) {
 		menuMapper.deleteByPrimaryKey(id);
 	}
 
-	
 	public void add(Menu record) {
 		menuMapper.insert(record);
 	}
 
-	
 	public void addSelective(Menu record) {
 		menuMapper.insertSelective(record);
 	}
 
-	
 	public List<Menu> findByExample(MenuExample example) {
 		return menuMapper.selectByExample(example);
 	}
 
-	
 	public Menu findByPrimaryKey(Long id) {
 		return menuMapper.selectByPrimaryKey(id);
 	}
 
-	
 	public void updateByExampleSelective(Menu record, MenuExample example) {
-		menuMapper.updateByExampleSelective(record, example);		
+		menuMapper.updateByExampleSelective(record, example);
 	}
 
-	
 	public void updateByExample(Menu record, MenuExample example) {
-		menuMapper.updateByExample(record, example);		
+		menuMapper.updateByExample(record, example);
 	}
 
-	
 	public void updateByPrimaryKeySelective(Menu record) {
-		menuMapper.updateByPrimaryKeySelective(record);		
+		menuMapper.updateByPrimaryKeySelective(record);
 	}
 
-	
 	public void updateByPrimaryKey(Menu record) {
 		menuMapper.updateByPrimaryKey(record);
 	}
 
-
 	public PageInfo<Menu> findByExample(MenuExample example, Pagination p) {
-		PageHelper.startPage(p.getPage(), p.getSize());
+		PageHelper.startPage(p.getPage(), p.getRows(), p.getOrderByClause());
 		List<Menu> list = this.findByExample(example);
 		return new PageInfo<Menu>(list);
 	}

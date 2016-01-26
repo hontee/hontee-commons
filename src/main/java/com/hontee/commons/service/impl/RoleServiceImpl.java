@@ -16,63 +16,52 @@ import com.hontee.commons.support.Pagination;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-	
+
 	@Resource
 	private RoleMapper roleMapper;
 
-	
 	public int countByExample(RoleExample example) {
 		return roleMapper.countByExample(example);
 	}
 
-	
 	public void deleteByExample(RoleExample example) {
-		roleMapper.deleteByExample(example);		
+		roleMapper.deleteByExample(example);
 	}
 
-	
 	public void deleteByPrimaryKey(Long id) {
-		roleMapper.deleteByPrimaryKey(id);		
+		roleMapper.deleteByPrimaryKey(id);
 	}
 
-	
 	public void add(Role record) {
-		roleMapper.insert(record);		
+		roleMapper.insert(record);
 	}
 
-	
 	public void addelective(Role record) {
-		roleMapper.insertSelective(record);		
+		roleMapper.insertSelective(record);
 	}
 
-	
 	public List<Role> findByExample(RoleExample example) {
 		return roleMapper.selectByExample(example);
 	}
 
-	
 	public Role findByPrimaryKey(Long id) {
 		return roleMapper.selectByPrimaryKey(id);
 	}
 
-	
 	public void updateByExampleSelective(Role record, RoleExample example) {
-		roleMapper.updateByExampleSelective(record, example);		
+		roleMapper.updateByExampleSelective(record, example);
 	}
 
-	
 	public void updateByExample(Role record, RoleExample example) {
-		roleMapper.updateByExample(record, example);		
+		roleMapper.updateByExample(record, example);
 	}
 
-	
 	public void updateByPrimaryKeySelective(Role record) {
-		roleMapper.updateByPrimaryKeySelective(record);		
+		roleMapper.updateByPrimaryKeySelective(record);
 	}
-
 
 	public PageInfo<Role> findByExample(RoleExample example, Pagination p) {
-		PageHelper.startPage(p.getPage(), p.getSize());
+		PageHelper.startPage(p.getPage(), p.getRows(), p.getOrderByClause());
 		List<Role> list = this.findByExample(example);
 		return new PageInfo<Role>(list);
 	}

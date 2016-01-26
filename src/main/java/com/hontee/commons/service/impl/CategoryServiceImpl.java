@@ -16,30 +16,30 @@ import com.hontee.commons.support.Pagination;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-	
+
 	@Resource
 	private CategoryMapper categoryMapper;
-	
+
 	public int countByExample(CategoryExample example) {
 		return categoryMapper.countByExample(example);
 	}
-	
+
 	public void deleteByExample(CategoryExample example) {
 		categoryMapper.deleteByExample(example);
 	}
-	
+
 	public void deleteByPrimaryKey(Long id) {
 		categoryMapper.deleteByPrimaryKey(id);
 	}
-	
+
 	public void add(Category record) {
 		categoryMapper.insert(record);
 	}
-	
+
 	public void addSelective(Category record) {
 		categoryMapper.insertSelective(record);
 	}
-	
+
 	public List<Category> findByExample(CategoryExample example) {
 		return categoryMapper.selectByExample(example);
 	}
@@ -47,7 +47,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public Category findByPrimaryKey(Long id) {
 		return categoryMapper.selectByPrimaryKey(id);
 	}
-	
+
 	public void updateByExampleSelective(Category record, CategoryExample example) {
 		categoryMapper.updateByExampleSelective(record, example);
 	}
@@ -55,22 +55,19 @@ public class CategoryServiceImpl implements CategoryService {
 	public void updateByExample(Category record, CategoryExample example) {
 		categoryMapper.updateByExample(record, example);
 	}
-	
+
 	public void updateByPrimaryKeySelective(Category record) {
 		categoryMapper.updateByPrimaryKeySelective(record);
-		
 	}
-	
+
 	public void updateByPrimaryKey(Category record) {
-		categoryMapper.updateByPrimaryKey(record);		
+		categoryMapper.updateByPrimaryKey(record);
 	}
 
 	public PageInfo<Category> findByExample(CategoryExample example, Pagination p) {
-		PageHelper.startPage(p.getPage(), p.getSize());
+		PageHelper.startPage(p.getPage(), p.getRows(), p.getOrderByClause());
 		List<Category> list = this.findByExample(example);
 		return new PageInfo<Category>(list);
 	}
-	
-	
 
 }
