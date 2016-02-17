@@ -9,13 +9,13 @@ public interface RoleManagerService {
 	 * @param userId
 	 * @return
 	 */
-	Set<String> getUserRoles(Long userId);
+	Set<String> getUserRoles(Long userId) throws Exception;
 	
 	/**
 	 * 根据用户ID获取权限
 	 * @param roleId
 	 * @return
 	 */
-	Set<String> getPermissions(Long userId);
+	Set<String> getPermissions(Long userId) throws Exception;
 
 }

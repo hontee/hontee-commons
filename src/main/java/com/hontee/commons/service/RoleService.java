@@ -8,24 +8,26 @@ import com.hontee.commons.support.Pager;
 
 public interface RoleService extends Pager<Role, RoleExample> {
 
-	int countByExample(RoleExample example);
+	int countByExample(RoleExample example) throws Exception;
 
-	void deleteByExample(RoleExample example);
+	void deleteByExample(RoleExample example) throws Exception;
 
-	void deleteByPrimaryKey(Long id);
+	void deleteByPrimaryKey(Long id) throws Exception;
+	
+	void deleteBatch(List<Long> list) throws Exception;
 
-	void add(Role record);
+	void add(Role record) throws Exception;
 
-	void addelective(Role record);
+	void addelective(Role record) throws Exception;
 
-	List<Role> findByExample(RoleExample example);
+	List<Role> findByExample(RoleExample example) throws Exception;
 
-	Role findByPrimaryKey(Long id);
+	Role findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Role record, RoleExample example);
+	void updateByExampleSelective(Role record, RoleExample example) throws Exception;
 
-	void updateByExample(Role record, RoleExample example);
+	void updateByExample(Role record, RoleExample example) throws Exception;
 
-	void updateByPrimaryKeySelective(Role record);
+	void updateByPrimaryKeySelective(Role record) throws Exception;
 
 }

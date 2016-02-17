@@ -11,6 +11,7 @@ import com.github.pagehelper.PageInfo;
 import com.hontee.commons.db.dao.CategoryMapper;
 import com.hontee.commons.db.entity.Category;
 import com.hontee.commons.db.entity.CategoryExample;
+import com.hontee.commons.exception.BusinessException;
 import com.hontee.commons.service.CategoryService;
 import com.hontee.commons.support.Pagination;
 
@@ -20,51 +21,55 @@ public class CategoryServiceImpl implements CategoryService {
 	@Resource
 	private CategoryMapper categoryMapper;
 
-	public int countByExample(CategoryExample example) {
+	public int countByExample(CategoryExample example) throws BusinessException {
 		return categoryMapper.countByExample(example);
 	}
 
-	public void deleteByExample(CategoryExample example) {
+	public void deleteByExample(CategoryExample example) throws BusinessException {
 		categoryMapper.deleteByExample(example);
 	}
 
-	public void deleteByPrimaryKey(Long id) {
+	public void deleteByPrimaryKey(Long id) throws BusinessException {
 		categoryMapper.deleteByPrimaryKey(id);
 	}
+	
+	public void deleteBatch(List<Long> list) throws Exception {
+		categoryMapper.deleteBatch(list);
+	}
 
-	public void add(Category record) {
+	public void add(Category record) throws BusinessException {
 		categoryMapper.insert(record);
 	}
 
-	public void addSelective(Category record) {
+	public void addSelective(Category record) throws BusinessException {
 		categoryMapper.insertSelective(record);
 	}
 
-	public List<Category> findByExample(CategoryExample example) {
+	public List<Category> findByExample(CategoryExample example) throws BusinessException {
 		return categoryMapper.selectByExample(example);
 	}
 
-	public Category findByPrimaryKey(Long id) {
+	public Category findByPrimaryKey(Long id) throws BusinessException {
 		return categoryMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Category record, CategoryExample example) {
+	public void updateByExampleSelective(Category record, CategoryExample example) throws BusinessException {
 		categoryMapper.updateByExampleSelective(record, example);
 	}
 
-	public void updateByExample(Category record, CategoryExample example) {
+	public void updateByExample(Category record, CategoryExample example) throws BusinessException {
 		categoryMapper.updateByExample(record, example);
 	}
 
-	public void updateByPrimaryKeySelective(Category record) {
+	public void updateByPrimaryKeySelective(Category record) throws BusinessException {
 		categoryMapper.updateByPrimaryKeySelective(record);
 	}
 
-	public void updateByPrimaryKey(Category record) {
+	public void updateByPrimaryKey(Category record) throws BusinessException {
 		categoryMapper.updateByPrimaryKey(record);
 	}
 
-	public PageInfo<Category> findByExample(CategoryExample example, Pagination p) {
+	public PageInfo<Category> findByExample(CategoryExample example, Pagination p) throws BusinessException {
 		PageHelper.startPage(p.getPage(), p.getRows(), p.getOrderByClause());
 		List<Category> list = this.findByExample(example);
 		return new PageInfo<Category>(list);

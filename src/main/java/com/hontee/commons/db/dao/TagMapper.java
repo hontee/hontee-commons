@@ -11,6 +11,8 @@ public interface TagMapper {
     int deleteByExample(TagExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Tag record);
 

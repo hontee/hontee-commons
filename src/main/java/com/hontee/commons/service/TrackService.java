@@ -8,32 +8,34 @@ import com.hontee.commons.support.Pager;
 
 public interface TrackService extends Pager<Track, TrackExample> {
 	
-	int countByExample(TrackExample example);
+	int countByExample(TrackExample example) throws Exception;
 
-	void deleteByExample(TrackExample example);
+	void deleteByExample(TrackExample example) throws Exception;
 
-	void deleteByPrimaryKey(Long id);
-
-	void add(Track record);
-
-	void addSelective(Track record);
-
-	List<Track> findByExampleWithBLOBs(TrackExample example);
-
-	List<Track> findByExample(TrackExample example);
-
-	Track findByPrimaryKey(Long id);
-
-	void updateByExampleSelective(Track record, TrackExample example);
+	void deleteByPrimaryKey(Long id) throws Exception;
 	
-	void updateByExampleWithBLOBs(Track record, TrackExample example);
+	void deleteBatch(List<Long> list) throws Exception;
 
-	void updateByExample(Track record, TrackExample example);
+	void add(Track record) throws Exception;
 
-	void updateByPrimaryKeySelective(Track record);
+	void addSelective(Track record) throws Exception;
 
-	void updateByPrimaryKeyWithBLOBs(Track record);
+	List<Track> findByExampleWithBLOBs(TrackExample example) throws Exception;
 
-	void updateByPrimaryKey(Track record);
+	List<Track> findByExample(TrackExample example) throws Exception;
+
+	Track findByPrimaryKey(Long id) throws Exception;
+
+	void updateByExampleSelective(Track record, TrackExample example) throws Exception;
+	
+	void updateByExampleWithBLOBs(Track record, TrackExample example) throws Exception;
+
+	void updateByExample(Track record, TrackExample example) throws Exception;
+
+	void updateByPrimaryKeySelective(Track record) throws Exception;
+
+	void updateByPrimaryKeyWithBLOBs(Track record) throws Exception;
+
+	void updateByPrimaryKey(Track record) throws Exception;
 
 }

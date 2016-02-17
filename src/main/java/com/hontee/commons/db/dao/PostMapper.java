@@ -11,6 +11,8 @@ public interface PostMapper {
     int deleteByExample(PostExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Post record);
 

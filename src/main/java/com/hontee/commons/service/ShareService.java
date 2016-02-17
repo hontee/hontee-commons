@@ -8,26 +8,28 @@ import com.hontee.commons.support.Pager;
 
 public interface ShareService extends Pager<Share, ShareExample> {
 
-	int countByExample(ShareExample example);
+	int countByExample(ShareExample example) throws Exception;
 
-	void deleteByExample(ShareExample example);
+	void deleteByExample(ShareExample example) throws Exception;
 
-	void deleteByPrimaryKey(Long id);
+	void deleteByPrimaryKey(Long id) throws Exception;
+	
+	void deleteBatch(List<Long> list) throws Exception;
 
-	void add(Share record);
+	void add(Share record) throws Exception;
 
-	void addSelective(Share record);
+	void addSelective(Share record) throws Exception;
 
-	List<Share> findByExample(ShareExample example);
+	List<Share> findByExample(ShareExample example) throws Exception;
 
-	Share findByPrimaryKey(Long id);
+	Share findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Share record, ShareExample example);
+	void updateByExampleSelective(Share record, ShareExample example) throws Exception;
 
-	void updateByExample(Share record, ShareExample example);
+	void updateByExample(Share record, ShareExample example) throws Exception;
 
-	void updateByPrimaryKeySelective(Share record);
+	void updateByPrimaryKeySelective(Share record) throws Exception;
 
-	void updateByPrimaryKey(Share record);
+	void updateByPrimaryKey(Share record) throws Exception;
 
 }

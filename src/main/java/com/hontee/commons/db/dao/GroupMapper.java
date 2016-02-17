@@ -11,6 +11,8 @@ public interface GroupMapper {
     int deleteByExample(GroupExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Group record);
 

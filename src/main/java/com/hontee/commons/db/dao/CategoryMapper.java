@@ -11,6 +11,8 @@ public interface CategoryMapper {
     int deleteByExample(CategoryExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Category record);
 

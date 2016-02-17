@@ -11,6 +11,8 @@ public interface PermissionMapper {
     int deleteByExample(PermissionExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Permission record);
 

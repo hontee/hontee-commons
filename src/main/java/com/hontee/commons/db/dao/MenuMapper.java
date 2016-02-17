@@ -11,6 +11,8 @@ public interface MenuMapper {
     int deleteByExample(MenuExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Menu record);
 

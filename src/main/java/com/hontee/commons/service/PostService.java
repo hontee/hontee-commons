@@ -8,25 +8,27 @@ import com.hontee.commons.support.Pager;
 
 public interface PostService extends Pager<Post, PostExample> {
 
-	int countByExample(PostExample example);
+	int countByExample(PostExample example) throws Exception;
 
-	void deleteByExample(PostExample example);
+	void deleteByExample(PostExample example) throws Exception;
 
-	void deleteByPrimaryKey(Long id);
+	void deleteByPrimaryKey(Long id) throws Exception;
+	
+	void deleteBatch(List<Long> list) throws Exception;
 
-	void add(Post record);
+	void add(Post record) throws Exception;
 
-	void addSelective(Post record);
+	void addSelective(Post record) throws Exception;
 
-	List<Post> findByExample(PostExample example);
+	List<Post> findByExample(PostExample example) throws Exception;
 
-	Post findByPrimaryKey(Long id);
+	Post findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Post record, PostExample example);
+	void updateByExampleSelective(Post record, PostExample example) throws Exception;
 
-	void updateByExample(Post record, PostExample example);
+	void updateByExample(Post record, PostExample example) throws Exception;
 
-	void updateByPrimaryKeySelective(Post record);
+	void updateByPrimaryKeySelective(Post record) throws Exception;
 
-	void updateByPrimaryKey(Post record);
+	void updateByPrimaryKey(Post record) throws Exception;
 }

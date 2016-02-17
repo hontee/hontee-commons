@@ -8,26 +8,28 @@ import com.hontee.commons.support.Pager;
 
 public interface CategoryService extends Pager<Category, CategoryExample> {
 
-	int countByExample(CategoryExample example);
+	int countByExample(CategoryExample example) throws Exception;
 
-	void deleteByExample(CategoryExample example);
+	void deleteByExample(CategoryExample example) throws Exception;
 
-	void deleteByPrimaryKey(Long id);
+	void deleteByPrimaryKey(Long id) throws Exception;
+	
+	void deleteBatch(List<Long> list) throws Exception;
 
-	void add(Category record);
+	void add(Category record) throws Exception;
 
-	void addSelective(Category record);
+	void addSelective(Category record) throws Exception;
 
-	List<Category> findByExample(CategoryExample example);
+	List<Category> findByExample(CategoryExample example) throws Exception;
 
-	Category findByPrimaryKey(Long id);
+	Category findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Category record, CategoryExample example);
+	void updateByExampleSelective(Category record, CategoryExample example) throws Exception;
 
-	void updateByExample(Category record, CategoryExample example);
+	void updateByExample(Category record, CategoryExample example) throws Exception;
 
-	void updateByPrimaryKeySelective(Category record);
+	void updateByPrimaryKeySelective(Category record) throws Exception;
 
-	void updateByPrimaryKey(Category record);
+	void updateByPrimaryKey(Category record) throws Exception;
 
 }

@@ -8,26 +8,28 @@ import com.hontee.commons.support.Pager;
 
 public interface UserService extends Pager<User, UserExample> {
 	
-	int countByExample(UserExample example);
+	int countByExample(UserExample example) throws Exception;
 
-    void deleteByExample(UserExample example);
+    void deleteByExample(UserExample example) throws Exception;
 
-    void deleteByPrimaryKey(Long id);
+    void deleteByPrimaryKey(Long id) throws Exception;
+    
+    void deleteBatch(List<Long> list) throws Exception;
 
-    void add(User record);
+    void add(User record) throws Exception;
 
-    void addSelective(User record);
+    void addSelective(User record) throws Exception;
 
-    List<User> findByExample(UserExample example);
+    List<User> findByExample(UserExample example) throws Exception;
 
-    User findByPrimaryKey(Long id);
+    User findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(User record, UserExample example);
+    void updateByExampleSelective(User record, UserExample example) throws Exception;
 
-    void updateByExample(User record, UserExample example);
+    void updateByExample(User record, UserExample example) throws Exception;
 
-    void updateByPrimaryKeySelective(User record);
+    void updateByPrimaryKeySelective(User record) throws Exception;
 
-    void updateByPrimaryKey(User record);
+    void updateByPrimaryKey(User record) throws Exception;
 
 }

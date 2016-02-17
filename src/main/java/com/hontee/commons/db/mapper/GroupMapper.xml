@@ -101,6 +101,12 @@
     delete from t_groups
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteBatch" parameterType="java.util.List">
+    delete from t_groups where id in 
+    <foreach collection="list" item="id" open="(" separator="," close=")">
+    #{id,jdbcType=BIGINT}
+    </foreach>
+  </delete>
   <delete id="deleteByExample" parameterType="com.hontee.commons.db.entity.GroupExample" >
     delete from t_groups
     <if test="_parameter != null" >

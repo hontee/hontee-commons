@@ -12,27 +12,27 @@ public interface FollowService {
 	 * @param groupId
 	 * @return
 	 */
-	void unfollowGroup(Long userId, Long groupId);
+	void unfollowGroup(Long userId, Long groupId) throws Exception;
 
 	/**
 	 * 添加关注Group
 	 * @param record
 	 * @return
 	 */
-    void followGroup(FollowGroup record);
+    void followGroup(FollowGroup record) throws Exception;
     
     /**
      * 取消关注Post
      * @param userId
      * @param postId
      */
-    void unfollowPost(Long userId, Long postId);
+    void unfollowPost(Long userId, Long postId) throws Exception;
 
     /**
      * 添加关注Post
      * @param record
      */
-    void followPost(FollowPost record);
+    void followPost(FollowPost record) throws Exception;
     
     /**
      * 取消关注用户
@@ -40,13 +40,13 @@ public interface FollowService {
      * @param followId
      * @return
      */
-    void unfollowUser(Long userId, Long followId);
+    void unfollowUser(Long userId, Long followId) throws Exception;
 
     /**
      * 添加关注用户
      * @param record
      * @return
      */
-    void followUser(FollowUser record);
+    void followUser(FollowUser record) throws Exception;
 
 }

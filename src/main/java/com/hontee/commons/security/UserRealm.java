@@ -61,8 +61,12 @@ public class UserRealm extends AuthorizingRealm {
 		Subject subject = SecurityUtils.getSubject();
 	 	User currentUser = (User)subject.getSession().getAttribute(Constants.CURRENT_USER);
 	 	SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-	 	authorizationInfo.setRoles(rmService.getUserRoles(currentUser.getId())); // 设置用户角色
-	 	authorizationInfo.setStringPermissions(rmService.getPermissions(currentUser.getId())); // 设置用户权限
+	 	try {
+			authorizationInfo.setRoles(rmService.getUserRoles(currentUser.getId())); // 设置用户角色
+			authorizationInfo.setStringPermissions(rmService.getPermissions(currentUser.getId())); // 设置用户权限
+		} catch (Exception e) {
+			logger.warn(e.getMessage());
+		}
 		return authorizationInfo;
 	}
 
@@ -75,7 +79,12 @@ public class UserRealm extends AuthorizingRealm {
 		logger.info("用户身份验证：{}", username);
 		UserExample example = new UserExample();
 		example.createCriteria().andNameEqualTo(username);
-		List<User> list = userService.findByExample(example);
+		List<User> list = null;
+		try {
+			list = userService.findByExample(example);
+		} catch (Exception e) {
+			logger.warn(e.getMessage());
+		}
 		
 		if (list == null || list.isEmpty()) {
 			throw new UnknownAccountException("用户名或密码错误");

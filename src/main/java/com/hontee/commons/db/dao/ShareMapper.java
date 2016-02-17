@@ -11,6 +11,8 @@ public interface ShareMapper {
     int deleteByExample(ShareExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Share record);
 

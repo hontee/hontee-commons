@@ -11,6 +11,8 @@ public interface RoleMapper {
     int deleteByExample(RoleExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Role record);
 

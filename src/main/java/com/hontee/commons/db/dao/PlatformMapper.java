@@ -1,9 +1,11 @@
 package com.hontee.commons.db.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.hontee.commons.db.entity.Platform;
 import com.hontee.commons.db.entity.PlatformExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface PlatformMapper {
     int countByExample(PlatformExample example);
@@ -11,6 +13,8 @@ public interface PlatformMapper {
     int deleteByExample(PlatformExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(Platform record);
 

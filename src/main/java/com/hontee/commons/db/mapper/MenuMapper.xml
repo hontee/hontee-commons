@@ -98,6 +98,12 @@
     delete from sys_menus
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteBatch" parameterType="java.util.List">
+    delete from sys_menus where id in 
+    <foreach collection="list" item="id" open="(" separator="," close=")">
+    #{id,jdbcType=BIGINT}
+    </foreach>
+  </delete>
   <delete id="deleteByExample" parameterType="com.hontee.commons.db.entity.MenuExample" >
     delete from sys_menus
     <if test="_parameter != null" >

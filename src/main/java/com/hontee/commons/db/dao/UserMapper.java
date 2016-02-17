@@ -1,9 +1,11 @@
 package com.hontee.commons.db.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.hontee.commons.db.entity.User;
 import com.hontee.commons.db.entity.UserExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     int countByExample(UserExample example);
@@ -11,6 +13,8 @@ public interface UserMapper {
     int deleteByExample(UserExample example);
 
     int deleteByPrimaryKey(Long id);
+    
+    int deleteBatch(List<Long> list);
 
     int insert(User record);
 

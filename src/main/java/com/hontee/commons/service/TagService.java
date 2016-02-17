@@ -8,26 +8,28 @@ import com.hontee.commons.support.Pager;
 
 public interface TagService extends Pager<Tag, TagExample> {
 	
-	int countByExample(TagExample example);
+	int countByExample(TagExample example) throws Exception;
 
-    void deleteByExample(TagExample example);
+    void deleteByExample(TagExample example) throws Exception;
 
-    void deleteByPrimaryKey(Long id);
+    void deleteByPrimaryKey(Long id) throws Exception;
+    
+    void deleteBatch(List<Long> list) throws Exception;
 
-    void add(Tag record);
+    void add(Tag record) throws Exception;
 
-    void addSelective(Tag record);
+    void addSelective(Tag record) throws Exception;
 
-    List<Tag> findByExample(TagExample example);
+    List<Tag> findByExample(TagExample example) throws Exception;
 
-    Tag findByPrimaryKey(Long id);
+    Tag findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(Tag record, TagExample example);
+    void updateByExampleSelective(Tag record, TagExample example) throws Exception;
 
-    void updateByExample(Tag record, TagExample example);
+    void updateByExample(Tag record, TagExample example) throws Exception;
 
-    void updateByPrimaryKeySelective(Tag record);
+    void updateByPrimaryKeySelective(Tag record) throws Exception;
 
-    void updateByPrimaryKey(Tag record);
+    void updateByPrimaryKey(Tag record) throws Exception;
 
 }

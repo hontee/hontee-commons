@@ -8,26 +8,28 @@ import com.hontee.commons.support.Pager;
 
 public interface PlatformService extends Pager<Platform, PlatformExample> {
 
-	int countByExample(PlatformExample example);
+	int countByExample(PlatformExample example) throws Exception;
 
-	void deleteByExample(PlatformExample example);
+	void deleteByExample(PlatformExample example) throws Exception;
 
-	void deleteByPrimaryKey(Long id);
+	void deleteByPrimaryKey(Long id) throws Exception;
+	
+	void deleteBatch(List<Long> list) throws Exception;
 
-	void add(Platform record);
+	void add(Platform record) throws Exception;
 
-	void addSelective(Platform record);
+	void addSelective(Platform record) throws Exception;
 
-	List<Platform> findByExample(PlatformExample example);
+	List<Platform> findByExample(PlatformExample example) throws Exception;
 
-	Platform findByPrimaryKey(Long id);
+	Platform findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Platform record, PlatformExample example);
+	void updateByExampleSelective(Platform record, PlatformExample example) throws Exception;
 
-	void updateByExample(Platform record, PlatformExample example);
+	void updateByExample(Platform record, PlatformExample example) throws Exception;
 
-	void updateByPrimaryKeySelective(Platform record);
+	void updateByPrimaryKeySelective(Platform record) throws Exception;
 
-	void updateByPrimaryKey(Platform record);
+	void updateByPrimaryKey(Platform record) throws Exception;
 
 }

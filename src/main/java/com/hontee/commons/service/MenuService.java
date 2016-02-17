@@ -8,26 +8,28 @@ import com.hontee.commons.support.Pager;
 
 public interface MenuService extends Pager<Menu, MenuExample> {
 	
-	int countByExample(MenuExample example);
+	int countByExample(MenuExample example) throws Exception;
 
-    void deleteByExample(MenuExample example);
+    void deleteByExample(MenuExample example) throws Exception;
 
-    void deleteByPrimaryKey(Long id);
+    void deleteByPrimaryKey(Long id) throws Exception;
+    
+    void deleteBatch(List<Long> list) throws Exception;
 
-    void add(Menu record);
+    void add(Menu record) throws Exception;
 
-    void addSelective(Menu record);
+    void addSelective(Menu record) throws Exception;
 
-    List<Menu> findByExample(MenuExample example);
+    List<Menu> findByExample(MenuExample example) throws Exception;
 
-    Menu findByPrimaryKey(Long id);
+    Menu findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(Menu record, MenuExample example);
+    void updateByExampleSelective(Menu record, MenuExample example) throws Exception;
 
-    void updateByExample(Menu record, MenuExample example);
+    void updateByExample(Menu record, MenuExample example) throws Exception;
 
-    void updateByPrimaryKeySelective(Menu record);
+    void updateByPrimaryKeySelective(Menu record) throws Exception;
 
-    void updateByPrimaryKey(Menu record);
+    void updateByPrimaryKey(Menu record) throws Exception;
 
 }
