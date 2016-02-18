@@ -23,11 +23,7 @@ public interface PlatformMapper {
 
     Platform selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") Platform record, @Param("example") PlatformExample example);
-
     int updateByExample(@Param("record") Platform record, @Param("example") PlatformExample example);
-
-    int updateByPrimaryKeySelective(Platform record);
 
     int updateByPrimaryKey(Platform record);
 }

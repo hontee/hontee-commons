@@ -49,16 +49,8 @@ public class TagServiceImpl implements TagService {
 		return tagMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Tag record, TagExample example) throws BusinessException {
-		tagMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Tag record, TagExample example) throws BusinessException {
 		tagMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Tag record) throws BusinessException {
-		tagMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Tag record) throws BusinessException {

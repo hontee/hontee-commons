@@ -23,11 +23,7 @@ public interface GroupService extends Pager<Group, GroupExample> {
     
     Group findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(Group record, GroupExample example) throws Exception;
-
     void updateByExample(Group record, GroupExample example) throws Exception;
-
-    void updateByPrimaryKeySelective(Group record) throws Exception;
 
     void updateByPrimaryKey(Group record) throws Exception;
     

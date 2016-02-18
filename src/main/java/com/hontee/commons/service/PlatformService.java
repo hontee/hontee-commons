@@ -22,11 +22,7 @@ public interface PlatformService extends Pager<Platform, PlatformExample> {
 
 	Platform findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Platform record, PlatformExample example) throws Exception;
-
 	void updateByExample(Platform record, PlatformExample example) throws Exception;
-
-	void updateByPrimaryKeySelective(Platform record) throws Exception;
 
 	void updateByPrimaryKey(Platform record) throws Exception;
 

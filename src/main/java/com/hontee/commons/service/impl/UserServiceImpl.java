@@ -49,16 +49,8 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(User record, UserExample example) throws BusinessException {
-		userMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(User record, UserExample example) throws BusinessException {
 		userMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(User record) throws BusinessException {
-		userMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(User record) throws BusinessException {

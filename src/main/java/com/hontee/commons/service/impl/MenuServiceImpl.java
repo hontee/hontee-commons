@@ -49,16 +49,8 @@ public class MenuServiceImpl implements MenuService {
 		return menuMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Menu record, MenuExample example) throws BusinessException {
-		menuMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Menu record, MenuExample example) throws BusinessException {
 		menuMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Menu record) throws BusinessException {
-		menuMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Menu record) throws BusinessException {

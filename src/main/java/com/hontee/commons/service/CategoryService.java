@@ -22,11 +22,7 @@ public interface CategoryService extends Pager<Category, CategoryExample> {
 
 	Category findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Category record, CategoryExample example) throws Exception;
-
 	void updateByExample(Category record, CategoryExample example) throws Exception;
-
-	void updateByPrimaryKeySelective(Category record) throws Exception;
 
 	void updateByPrimaryKey(Category record) throws Exception;
 

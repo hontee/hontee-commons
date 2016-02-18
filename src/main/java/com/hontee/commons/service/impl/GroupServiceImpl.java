@@ -54,16 +54,8 @@ public class GroupServiceImpl implements GroupService {
 		return groupMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Group record, GroupExample example) throws BusinessException {
-		groupMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Group record, GroupExample example) throws BusinessException {
 		groupMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Group record) throws BusinessException {
-		groupMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Group record) throws BusinessException {

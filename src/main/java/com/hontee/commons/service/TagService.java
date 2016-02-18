@@ -22,11 +22,7 @@ public interface TagService extends Pager<Tag, TagExample> {
 
     Tag findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(Tag record, TagExample example) throws Exception;
-
     void updateByExample(Tag record, TagExample example) throws Exception;
-
-    void updateByPrimaryKeySelective(Tag record) throws Exception;
 
     void updateByPrimaryKey(Tag record) throws Exception;
 

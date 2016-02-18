@@ -49,16 +49,8 @@ public class PermissionServiceImpl implements PermissionService {
 		return permissionMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Permission record, PermissionExample example) throws BusinessException {
-		permissionMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Permission record, PermissionExample example) throws BusinessException {
 		permissionMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Permission record) throws BusinessException {
-		permissionMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Permission record) throws BusinessException {

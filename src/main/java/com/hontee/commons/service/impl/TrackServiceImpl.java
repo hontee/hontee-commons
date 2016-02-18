@@ -53,25 +53,8 @@ public class TrackServiceImpl implements TrackService {
 		return trackMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Track record, TrackExample example) throws BusinessException {
-		trackMapper.updateByExampleSelective(record, example);
-	}
-
-	public void updateByExampleWithBLOBs(Track record, TrackExample example) throws BusinessException {
-		trackMapper.updateByExampleWithBLOBs(record, example);
-	}
-
 	public void updateByExample(Track record, TrackExample example) throws BusinessException {
 		trackMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Track record) throws BusinessException {
-		trackMapper.updateByPrimaryKeySelective(record);
-
-	}
-
-	public void updateByPrimaryKeyWithBLOBs(Track record) throws BusinessException {
-		trackMapper.updateByPrimaryKeyWithBLOBs(record);
 	}
 
 	public void updateByPrimaryKey(Track record) throws BusinessException {

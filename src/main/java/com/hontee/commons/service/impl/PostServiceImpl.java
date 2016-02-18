@@ -49,16 +49,8 @@ public class PostServiceImpl implements PostService {
 		return postMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Post record, PostExample example) throws BusinessException {
-		postMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Post record, PostExample example) throws BusinessException {
 		postMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Post record) throws BusinessException {
-		postMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Post record) throws BusinessException {

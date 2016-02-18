@@ -22,11 +22,7 @@ public interface ShareService extends Pager<Share, ShareExample> {
 
 	Share findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Share record, ShareExample example) throws Exception;
-
 	void updateByExample(Share record, ShareExample example) throws Exception;
-
-	void updateByPrimaryKeySelective(Share record) throws Exception;
 
 	void updateByPrimaryKey(Share record) throws Exception;
 

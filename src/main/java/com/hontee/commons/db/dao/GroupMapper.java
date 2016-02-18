@@ -21,11 +21,7 @@ public interface GroupMapper {
 
     Group selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") Group record, @Param("example") GroupExample example);
-
     int updateByExample(@Param("record") Group record, @Param("example") GroupExample example);
-
-    int updateByPrimaryKeySelective(Group record);
 
     int updateByPrimaryKey(Group record);
 }

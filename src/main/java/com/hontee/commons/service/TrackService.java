@@ -24,15 +24,7 @@ public interface TrackService extends Pager<Track, TrackExample> {
 
 	Track findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Track record, TrackExample example) throws Exception;
-	
-	void updateByExampleWithBLOBs(Track record, TrackExample example) throws Exception;
-
 	void updateByExample(Track record, TrackExample example) throws Exception;
-
-	void updateByPrimaryKeySelective(Track record) throws Exception;
-
-	void updateByPrimaryKeyWithBLOBs(Track record) throws Exception;
 
 	void updateByPrimaryKey(Track record) throws Exception;
 

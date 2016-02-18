@@ -21,11 +21,7 @@ public interface ShareMapper {
 
     Share selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") Share record, @Param("example") ShareExample example);
-
     int updateByExample(@Param("record") Share record, @Param("example") ShareExample example);
-
-    int updateByPrimaryKeySelective(Share record);
 
     int updateByPrimaryKey(Share record);
 }

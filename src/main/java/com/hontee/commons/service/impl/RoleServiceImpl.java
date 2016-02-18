@@ -49,16 +49,8 @@ public class RoleServiceImpl implements RoleService {
 		return roleMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Role record, RoleExample example) throws BusinessException {
-		roleMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Role record, RoleExample example) throws BusinessException {
 		roleMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Role record) throws BusinessException {
-		roleMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public PageInfo<Role> findByExample(RoleExample example, Pagination p) throws BusinessException {

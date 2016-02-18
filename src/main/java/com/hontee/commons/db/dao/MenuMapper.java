@@ -21,11 +21,7 @@ public interface MenuMapper {
 
     Menu selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") Menu record, @Param("example") MenuExample example);
-
     int updateByExample(@Param("record") Menu record, @Param("example") MenuExample example);
-
-    int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
 }

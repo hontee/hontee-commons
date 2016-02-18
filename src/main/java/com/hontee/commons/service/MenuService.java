@@ -22,11 +22,7 @@ public interface MenuService extends Pager<Menu, MenuExample> {
 
     Menu findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(Menu record, MenuExample example) throws Exception;
-
     void updateByExample(Menu record, MenuExample example) throws Exception;
-
-    void updateByPrimaryKeySelective(Menu record) throws Exception;
 
     void updateByPrimaryKey(Menu record) throws Exception;
 

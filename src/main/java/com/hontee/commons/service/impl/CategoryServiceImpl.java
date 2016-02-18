@@ -49,16 +49,8 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Category record, CategoryExample example) throws BusinessException {
-		categoryMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Category record, CategoryExample example) throws BusinessException {
 		categoryMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Category record) throws BusinessException {
-		categoryMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Category record) throws BusinessException {

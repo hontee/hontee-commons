@@ -169,7 +169,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExample" parameterType="map" >
     update sys_permissions
     <set >
       <if test="record.id != null" >
@@ -201,21 +201,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
-    update sys_permissions
-    set id = #{record.id,jdbcType=BIGINT},
-      name = #{record.name,jdbcType=VARCHAR},
-      title = #{record.title,jdbcType=VARCHAR},
-      description = #{record.description,jdbcType=VARCHAR},
-      state = #{record.state,jdbcType=TINYINT},
-      created = #{record.created,jdbcType=TIMESTAMP},
-      last_modified = #{record.lastModified,jdbcType=TIMESTAMP},
-      create_by = #{record.createBy,jdbcType=BIGINT}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hontee.commons.db.entity.Permission" >
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.Permission" >
     update sys_permissions
     <set >
       <if test="name != null" >
@@ -240,17 +226,6 @@
         create_by = #{createBy,jdbcType=BIGINT},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.Permission" >
-    update sys_permissions
-    set name = #{name,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
-      state = #{state,jdbcType=TINYINT},
-      created = #{created,jdbcType=TIMESTAMP},
-      last_modified = #{lastModified,jdbcType=TIMESTAMP},
-      create_by = #{createBy,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

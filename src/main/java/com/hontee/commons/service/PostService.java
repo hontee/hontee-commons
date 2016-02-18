@@ -22,11 +22,7 @@ public interface PostService extends Pager<Post, PostExample> {
 
 	Post findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Post record, PostExample example) throws Exception;
-
 	void updateByExample(Post record, PostExample example) throws Exception;
-
-	void updateByPrimaryKeySelective(Post record) throws Exception;
 
 	void updateByPrimaryKey(Post record) throws Exception;
 }

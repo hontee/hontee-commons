@@ -22,11 +22,7 @@ public interface PermissionService extends Pager<Permission, PermissionExample> 
 
     Permission findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(Permission record, PermissionExample example) throws Exception;
-
     void updateByExample(Permission record, PermissionExample example) throws Exception;
-
-    void updateByPrimaryKeySelective(Permission record) throws Exception;
 
     void updateByPrimaryKey(Permission record) throws Exception;
 

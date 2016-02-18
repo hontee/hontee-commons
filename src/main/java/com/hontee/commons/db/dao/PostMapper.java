@@ -21,11 +21,7 @@ public interface PostMapper {
 
     Post selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") Post record, @Param("example") PostExample example);
-
     int updateByExample(@Param("record") Post record, @Param("example") PostExample example);
-
-    int updateByPrimaryKeySelective(Post record);
 
     int updateByPrimaryKey(Post record);
 }

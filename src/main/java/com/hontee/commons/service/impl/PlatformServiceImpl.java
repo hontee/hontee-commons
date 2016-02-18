@@ -54,16 +54,8 @@ public class PlatformServiceImpl implements PlatformService {
 		platformMapper.insertSelective(record);
 	}
 
-	public void updateByExampleSelective(Platform record, PlatformExample example) throws BusinessException {
-		platformMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Platform record, PlatformExample example) throws BusinessException {
 		platformMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Platform record) throws BusinessException {
-		platformMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Platform record) throws BusinessException {

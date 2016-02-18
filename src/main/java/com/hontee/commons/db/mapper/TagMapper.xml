@@ -162,7 +162,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExample" parameterType="map" >
     update t_tags
     <set >
       <if test="record.id != null" >
@@ -191,20 +191,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
-    update t_tags
-    set id = #{record.id,jdbcType=BIGINT},
-      name = #{record.name,jdbcType=VARCHAR},
-      title = #{record.title,jdbcType=VARCHAR},
-      description = #{record.description,jdbcType=VARCHAR},
-      state = #{record.state,jdbcType=TINYINT},
-      created = #{record.created,jdbcType=TIMESTAMP},
-      last_modified = #{record.lastModified,jdbcType=TIMESTAMP}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hontee.commons.db.entity.Tag" >
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.Tag" >
     update t_tags
     <set >
       <if test="name != null" >
@@ -226,16 +213,6 @@
         last_modified = #{lastModified,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.Tag" >
-    update t_tags
-    set name = #{name,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
-      state = #{state,jdbcType=TINYINT},
-      created = #{created,jdbcType=TIMESTAMP},
-      last_modified = #{lastModified,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

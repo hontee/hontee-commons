@@ -219,7 +219,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExample" parameterType="map" >
     update t_posts
     <set >
       <if test="record.id != null" >
@@ -272,28 +272,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
-    update t_posts
-    set id = #{record.id,jdbcType=BIGINT},
-      name = #{record.name,jdbcType=VARCHAR},
-      title = #{record.title,jdbcType=VARCHAR},
-      description = #{record.description,jdbcType=VARCHAR},
-      tags = #{record.tags,jdbcType=VARCHAR},
-      url = #{record.url,jdbcType=VARCHAR},
-      hit = #{record.hit,jdbcType=INTEGER},
-      stars = #{record.stars,jdbcType=INTEGER},
-      state = #{record.state,jdbcType=TINYINT},
-      created = #{record.created,jdbcType=TIMESTAMP},
-      last_modified = #{record.lastModified,jdbcType=TIMESTAMP},
-      cat_id = #{record.catId,jdbcType=BIGINT},
-      category = #{record.category,jdbcType=VARCHAR},
-      platforms = #{record.platforms,jdbcType=VARCHAR},
-      create_by = #{record.createBy,jdbcType=BIGINT}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hontee.commons.db.entity.Post" >
+  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.Post" >
     update t_posts
     <set >
       <if test="name != null" >
@@ -339,24 +318,6 @@
         create_by = #{createBy,jdbcType=BIGINT},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.Post" >
-    update t_posts
-    set name = #{name,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
-      tags = #{tags,jdbcType=VARCHAR},
-      url = #{url,jdbcType=VARCHAR},
-      hit = #{hit,jdbcType=INTEGER},
-      stars = #{stars,jdbcType=INTEGER},
-      state = #{state,jdbcType=TINYINT},
-      created = #{created,jdbcType=TIMESTAMP},
-      last_modified = #{lastModified,jdbcType=TIMESTAMP},
-      cat_id = #{catId,jdbcType=BIGINT},
-      category = #{category,jdbcType=VARCHAR},
-      platforms = #{platforms,jdbcType=VARCHAR},
-      create_by = #{createBy,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

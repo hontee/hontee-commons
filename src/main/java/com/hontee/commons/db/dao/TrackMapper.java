@@ -23,15 +23,7 @@ public interface TrackMapper {
 
     Track selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") Track record, @Param("example") TrackExample example);
-
-    int updateByExampleWithBLOBs(@Param("record") Track record, @Param("example") TrackExample example);
-
     int updateByExample(@Param("record") Track record, @Param("example") TrackExample example);
-
-    int updateByPrimaryKeySelective(Track record);
-
-    int updateByPrimaryKeyWithBLOBs(Track record);
 
     int updateByPrimaryKey(Track record);
 }

@@ -22,12 +22,8 @@ public interface RoleService extends Pager<Role, RoleExample> {
 
 	Role findByPrimaryKey(Long id) throws Exception;
 
-	void updateByExampleSelective(Role record, RoleExample example) throws Exception;
-
 	void updateByExample(Role record, RoleExample example) throws Exception;
 
-	void updateByPrimaryKeySelective(Role record) throws Exception;
-	
 	void updateByPrimaryKey(Role record) throws Exception;
 
 }

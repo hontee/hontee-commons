@@ -22,11 +22,7 @@ public interface UserService extends Pager<User, UserExample> {
 
     User findByPrimaryKey(Long id) throws Exception;
 
-    void updateByExampleSelective(User record, UserExample example) throws Exception;
-
     void updateByExample(User record, UserExample example) throws Exception;
-
-    void updateByPrimaryKeySelective(User record) throws Exception;
 
     void updateByPrimaryKey(User record) throws Exception;
 

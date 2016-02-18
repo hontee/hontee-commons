@@ -49,16 +49,8 @@ public class ShareServiceImpl implements ShareService {
 		return shareMapper.selectByPrimaryKey(id);
 	}
 
-	public void updateByExampleSelective(Share record, ShareExample example) throws BusinessException {
-		shareMapper.updateByExampleSelective(record, example);
-	}
-
 	public void updateByExample(Share record, ShareExample example) throws BusinessException {
 		shareMapper.updateByExample(record, example);
-	}
-
-	public void updateByPrimaryKeySelective(Share record) throws BusinessException {
-		shareMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public void updateByPrimaryKey(Share record) throws BusinessException {
