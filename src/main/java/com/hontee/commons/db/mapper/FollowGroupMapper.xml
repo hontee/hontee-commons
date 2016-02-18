@@ -12,10 +12,8 @@
       and group_id = #{groupId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hontee.commons.db.entity.FollowGroup" >
-    insert into follow_groups (user_id, group_id, created
-      )
-    values (#{userId,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
-      )
+    insert into follow_groups (user_id, group_id)
+    values (#{userId,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.FollowGroup" >
     update follow_groups

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface RoleMapper {
+	
     int countByExample(RoleExample example);
 
     int deleteByExample(RoleExample example);
@@ -13,8 +14,6 @@ public interface RoleMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Role record);
 
     int insertSelective(Role record);
 

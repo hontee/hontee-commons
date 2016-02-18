@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ShareMapper {
+	
     int countByExample(ShareExample example);
 
     int deleteByExample(ShareExample example);
@@ -13,8 +14,6 @@ public interface ShareMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Share record);
 
     int insertSelective(Share record);
 

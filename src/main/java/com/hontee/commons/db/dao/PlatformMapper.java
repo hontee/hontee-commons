@@ -8,6 +8,7 @@ import com.hontee.commons.db.entity.Platform;
 import com.hontee.commons.db.entity.PlatformExample;
 
 public interface PlatformMapper {
+	
     int countByExample(PlatformExample example);
 
     int deleteByExample(PlatformExample example);
@@ -15,8 +16,6 @@ public interface PlatformMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Platform record);
 
     int insertSelective(Platform record);
 

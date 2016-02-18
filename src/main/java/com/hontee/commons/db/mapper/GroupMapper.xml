@@ -113,18 +113,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.Group" >
-    insert into t_groups (id, name, title, 
-      description, tags, stars, 
-      count, state, org_type, 
-      created, last_modified, create_by
-      )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{stars,jdbcType=INTEGER}, 
-      #{count,jdbcType=INTEGER}, #{state,jdbcType=TINYINT}, #{orgType,jdbcType=TINYINT}, 
-      #{created,jdbcType=TIMESTAMP}, #{lastModified,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Group" >
     insert into t_groups
     <trim prefix="(" suffix=")" suffixOverrides="," >

@@ -12,10 +12,8 @@
       and follow_id = #{followId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hontee.commons.db.entity.FollowUser" >
-    insert into follow_users (user_id, follow_id, created
-      )
-    values (#{userId,jdbcType=BIGINT}, #{followId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
-      )
+    insert into follow_users (user_id, follow_id)
+    values (#{userId,jdbcType=BIGINT}, #{followId,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.FollowUser" >
     update follow_users

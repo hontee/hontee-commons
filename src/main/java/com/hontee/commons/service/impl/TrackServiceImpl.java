@@ -38,10 +38,6 @@ public class TrackServiceImpl implements TrackService {
 	}
 
 	public void add(Track record) throws BusinessException {
-		trackMapper.insert(record);
-	}
-
-	public void addSelective(Track record) throws BusinessException {
 		trackMapper.insertSelective(record);
 	}
 

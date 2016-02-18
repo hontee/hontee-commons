@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface FollowGroupMapper {
+	
     int deleteByPrimaryKey(@Param("userId") Long userId, @Param("groupId") Long groupId);
 
     int insert(FollowGroup record);

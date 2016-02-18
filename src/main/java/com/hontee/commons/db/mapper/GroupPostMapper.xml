@@ -12,10 +12,8 @@
       and post_id = #{postId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hontee.commons.db.entity.GroupPost" >
-    insert into t_groups_posts (group_id, post_id, created
-      )
-    values (#{groupId,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
-      )
+    insert into t_groups_posts (group_id, post_id)
+    values (#{groupId,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.GroupPost" >
     update t_groups_posts

@@ -38,10 +38,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public void add(User record) throws BusinessException {
-		userMapper.insert(record);
-	}
-
-	public void addSelective(User record) throws BusinessException {
 		userMapper.insertSelective(record);
 	}
 

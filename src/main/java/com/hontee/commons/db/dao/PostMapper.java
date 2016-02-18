@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface PostMapper {
+	
     int countByExample(PostExample example);
 
     int deleteByExample(PostExample example);
@@ -13,8 +14,6 @@ public interface PostMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Post record);
 
     int insertSelective(Post record);
 

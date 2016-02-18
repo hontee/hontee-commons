@@ -107,14 +107,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.Platform" >
-    insert into t_platforms (id, name, title, 
-      description, state, created, 
-      last_modified)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, #{created,jdbcType=TIMESTAMP}, 
-      #{lastModified,jdbcType=TIMESTAMP})
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Platform" >
     insert into t_platforms
     <trim prefix="(" suffix=")" suffixOverrides="," >

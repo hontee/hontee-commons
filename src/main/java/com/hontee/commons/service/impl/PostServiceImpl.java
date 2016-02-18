@@ -38,10 +38,6 @@ public class PostServiceImpl implements PostService {
 	}
 
 	public void add(Post record) throws BusinessException {
-		postMapper.insert(record);
-	}
-
-	public void addSelective(Post record) throws BusinessException {
 		postMapper.insertSelective(record);
 	}
 

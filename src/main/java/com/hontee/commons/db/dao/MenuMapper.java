@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface MenuMapper {
+	
     int countByExample(MenuExample example);
 
     int deleteByExample(MenuExample example);
@@ -13,8 +14,6 @@ public interface MenuMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Menu record);
 
     int insertSelective(Menu record);
 

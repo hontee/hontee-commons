@@ -18,8 +18,6 @@ public interface PermissionService extends Pager<Permission, PermissionExample> 
 
     void add(Permission record) throws Exception;
 
-    void addSelective(Permission record) throws Exception;
-
     List<Permission> findByExample(PermissionExample example) throws Exception;
 
     Permission findByPrimaryKey(Long id) throws Exception;

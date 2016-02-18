@@ -116,20 +116,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.Post" >
-    insert into t_posts (id, name, title, 
-      description, tags, url, 
-      hit, stars, state, 
-      created, last_modified, cat_id, 
-      category, platforms, create_by
-      )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
-      #{hit,jdbcType=INTEGER}, #{stars,jdbcType=INTEGER}, #{state,jdbcType=TINYINT}, 
-      #{created,jdbcType=TIMESTAMP}, #{lastModified,jdbcType=TIMESTAMP}, #{catId,jdbcType=BIGINT}, 
-      #{category,jdbcType=VARCHAR}, #{platforms,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Post" >
     insert into t_posts
     <trim prefix="(" suffix=")" suffixOverrides="," >

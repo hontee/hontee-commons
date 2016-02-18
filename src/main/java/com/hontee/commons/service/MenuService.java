@@ -18,8 +18,6 @@ public interface MenuService extends Pager<Menu, MenuExample> {
 
     void add(Menu record) throws Exception;
 
-    void addSelective(Menu record) throws Exception;
-
     List<Menu> findByExample(MenuExample example) throws Exception;
 
     Menu findByPrimaryKey(Long id) throws Exception;

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface RoleUserMapper {
+	
     int deleteByPrimaryKey(@Param("userId") Long userId, @Param("roleId") Long roleId);
 
     int insert(RoleUser record);

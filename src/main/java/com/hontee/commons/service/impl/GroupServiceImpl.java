@@ -43,10 +43,6 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	public void add(Group record) throws BusinessException {
-		groupMapper.insert(record);
-	}
-
-	public void addSelective(Group record) throws BusinessException {
 		groupMapper.insertSelective(record);
 	}
 

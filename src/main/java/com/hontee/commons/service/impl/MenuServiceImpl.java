@@ -38,10 +38,6 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	public void add(Menu record) throws BusinessException {
-		menuMapper.insert(record);
-	}
-
-	public void addSelective(Menu record) throws BusinessException {
 		menuMapper.insertSelective(record);
 	}
 

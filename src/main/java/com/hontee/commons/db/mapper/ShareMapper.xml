@@ -113,18 +113,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.Share" >
-    insert into t_shares (id, name, title, 
-      description, keywords, url, 
-      state, created, last_modified, 
-      cat_id, platforms, create_by
-      )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
-      #{state,jdbcType=TINYINT}, #{created,jdbcType=TIMESTAMP}, #{lastModified,jdbcType=TIMESTAMP}, 
-      #{catId,jdbcType=BIGINT}, #{platforms,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Share" >
     insert into t_shares
     <trim prefix="(" suffix=")" suffixOverrides="," >

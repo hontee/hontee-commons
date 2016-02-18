@@ -108,14 +108,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.Role" >
-    insert into sys_roles (id, name, title, 
-      description, state, created, 
-      last_modified, create_by)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, #{created,jdbcType=TIMESTAMP}, 
-      #{lastModified,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT})
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Role" >
     insert into sys_roles
     <trim prefix="(" suffix=")" suffixOverrides="," >

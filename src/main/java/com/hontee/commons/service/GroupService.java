@@ -19,8 +19,6 @@ public interface GroupService extends Pager<Group, GroupExample> {
 
     void add(Group record) throws Exception;
 
-    void addSelective(Group record) throws Exception;
-
     List<Group> findByExample(GroupExample example) throws Exception;
     
     Group findByPrimaryKey(Long id) throws Exception;

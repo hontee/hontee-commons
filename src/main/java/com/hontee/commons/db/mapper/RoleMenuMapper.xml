@@ -12,10 +12,8 @@
       and menu_id = #{menuId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hontee.commons.db.entity.RoleMenu" >
-    insert into sys_roles_menus (role_id, menu_id, created
-      )
-    values (#{roleId,jdbcType=BIGINT}, #{menuId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
-      )
+    insert into sys_roles_menus (role_id, menu_id)
+    values (#{roleId,jdbcType=BIGINT}, #{menuId,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.RoleMenu" >
     update sys_roles_menus

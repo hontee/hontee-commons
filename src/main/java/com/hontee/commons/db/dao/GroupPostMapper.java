@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface GroupPostMapper {
+	
     int deleteByPrimaryKey(@Param("groupId") Long groupId, @Param("postId") Long postId);
 
     int insert(GroupPost record);

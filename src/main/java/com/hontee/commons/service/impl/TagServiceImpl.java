@@ -38,10 +38,6 @@ public class TagServiceImpl implements TagService {
 	}
 
 	public void add(Tag record) throws BusinessException {
-		tagMapper.insert(record);
-	}
-
-	public void addSelective(Tag record) throws BusinessException {
 		tagMapper.insertSelective(record);
 	}
 

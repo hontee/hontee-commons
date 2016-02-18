@@ -18,8 +18,6 @@ public interface RoleService extends Pager<Role, RoleExample> {
 
 	void add(Role record) throws Exception;
 
-	void addSelective(Role record) throws Exception;
-
 	List<Role> findByExample(RoleExample example) throws Exception;
 
 	Role findByPrimaryKey(Long id) throws Exception;

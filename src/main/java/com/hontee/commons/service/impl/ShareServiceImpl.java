@@ -38,10 +38,6 @@ public class ShareServiceImpl implements ShareService {
 	}
 
 	public void add(Share record) throws BusinessException {
-		shareMapper.insert(record);
-	}
-
-	public void addSelective(Share record) throws BusinessException {
 		shareMapper.insertSelective(record);
 	}
 

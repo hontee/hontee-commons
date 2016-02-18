@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TagMapper {
+	
     int countByExample(TagExample example);
 
     int deleteByExample(TagExample example);
@@ -13,8 +14,6 @@ public interface TagMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Tag record);
 
     int insertSelective(Tag record);
 

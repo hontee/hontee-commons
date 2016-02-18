@@ -12,10 +12,8 @@
       and post_id = #{postId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.hontee.commons.db.entity.FollowPost" >
-    insert into follow_posts (user_id, post_id, created
-      )
-    values (#{userId,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}
-      )
+    insert into follow_posts (user_id, post_id)
+    values (#{userId,jdbcType=BIGINT}, #{postId,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.hontee.commons.db.entity.FollowPost" >
     update follow_posts

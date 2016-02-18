@@ -18,8 +18,6 @@ public interface UserService extends Pager<User, UserExample> {
 
     void add(User record) throws Exception;
 
-    void addSelective(User record) throws Exception;
-
     List<User> findByExample(UserExample example) throws Exception;
 
     User findByPrimaryKey(Long id) throws Exception;

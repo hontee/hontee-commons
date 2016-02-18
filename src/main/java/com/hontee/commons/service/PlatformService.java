@@ -18,8 +18,6 @@ public interface PlatformService extends Pager<Platform, PlatformExample> {
 
 	void add(Platform record) throws Exception;
 
-	void addSelective(Platform record) throws Exception;
-
 	List<Platform> findByExample(PlatformExample example) throws Exception;
 
 	Platform findByPrimaryKey(Long id) throws Exception;

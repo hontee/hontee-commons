@@ -38,10 +38,6 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	public void add(Role record) throws BusinessException {
-		roleMapper.insert(record);
-	}
-
-	public void addSelective(Role record) throws BusinessException {
 		roleMapper.insertSelective(record);
 	}
 

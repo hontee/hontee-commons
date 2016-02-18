@@ -130,14 +130,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.Track" >
-    insert into sys_tracks (id, exception, state, 
-      created, last_modified, remark, 
-      object)
-    values (#{id,jdbcType=BIGINT}, #{exception,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, 
-      #{created,jdbcType=TIMESTAMP}, #{lastModified,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
-      #{object,jdbcType=LONGVARCHAR})
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Track" >
     insert into sys_tracks
     <trim prefix="(" suffix=")" suffixOverrides="," >

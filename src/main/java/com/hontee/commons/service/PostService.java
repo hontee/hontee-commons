@@ -18,8 +18,6 @@ public interface PostService extends Pager<Post, PostExample> {
 
 	void add(Post record) throws Exception;
 
-	void addSelective(Post record) throws Exception;
-
 	List<Post> findByExample(PostExample example) throws Exception;
 
 	Post findByPrimaryKey(Long id) throws Exception;

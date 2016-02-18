@@ -113,18 +113,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.User" >
-    insert into t_users (id, name, title, 
-      description, password, salt, 
-      email, is_email_set, user_type, 
-      state, created, last_modified
-      )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{isEmailSet,jdbcType=TINYINT}, #{userType,jdbcType=TINYINT}, 
-      #{state,jdbcType=TINYINT}, #{created,jdbcType=TIMESTAMP}, #{lastModified,jdbcType=TIMESTAMP}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.User" >
     insert into t_users
     <trim prefix="(" suffix=")" suffixOverrides="," >

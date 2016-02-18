@@ -18,8 +18,6 @@ public interface TrackService extends Pager<Track, TrackExample> {
 
 	void add(Track record) throws Exception;
 
-	void addSelective(Track record) throws Exception;
-
 	List<Track> findByExampleWithBLOBs(TrackExample example) throws Exception;
 
 	List<Track> findByExample(TrackExample example) throws Exception;

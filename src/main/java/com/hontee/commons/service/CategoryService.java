@@ -18,8 +18,6 @@ public interface CategoryService extends Pager<Category, CategoryExample> {
 
 	void add(Category record) throws Exception;
 
-	void addSelective(Category record) throws Exception;
-
 	List<Category> findByExample(CategoryExample example) throws Exception;
 
 	Category findByPrimaryKey(Long id) throws Exception;

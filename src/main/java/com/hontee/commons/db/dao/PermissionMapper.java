@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface PermissionMapper {
+	
     int countByExample(PermissionExample example);
 
     int deleteByExample(PermissionExample example);
@@ -13,8 +14,6 @@ public interface PermissionMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Permission record);
 
     int insertSelective(Permission record);
 

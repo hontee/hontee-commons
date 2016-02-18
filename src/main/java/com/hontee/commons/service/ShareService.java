@@ -18,8 +18,6 @@ public interface ShareService extends Pager<Share, ShareExample> {
 
 	void add(Share record) throws Exception;
 
-	void addSelective(Share record) throws Exception;
-
 	List<Share> findByExample(ShareExample example) throws Exception;
 
 	Share findByPrimaryKey(Long id) throws Exception;

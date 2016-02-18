@@ -18,8 +18,6 @@ public interface TagService extends Pager<Tag, TagExample> {
 
     void add(Tag record) throws Exception;
 
-    void addSelective(Tag record) throws Exception;
-
     List<Tag> findByExample(TagExample example) throws Exception;
 
     Tag findByPrimaryKey(Long id) throws Exception;

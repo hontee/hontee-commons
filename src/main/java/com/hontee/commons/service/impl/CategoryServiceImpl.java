@@ -38,10 +38,6 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	public void add(Category record) throws BusinessException {
-		categoryMapper.insert(record);
-	}
-
-	public void addSelective(Category record) throws BusinessException {
 		categoryMapper.insertSelective(record);
 	}
 

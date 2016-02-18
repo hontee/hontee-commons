@@ -38,10 +38,6 @@ public class PermissionServiceImpl implements PermissionService {
 	}
 
 	public void add(Permission record) throws BusinessException {
-		permissionMapper.insert(record);
-	}
-
-	public void addSelective(Permission record) throws BusinessException {
 		permissionMapper.insertSelective(record);
 	}
 

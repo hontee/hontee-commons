@@ -51,10 +51,6 @@ public class PlatformServiceImpl implements PlatformService {
 	}
 
 	public void add(Platform record) throws BusinessException {
-		platformMapper.insert(record);
-	}
-
-	public void addSelective(Platform record) throws BusinessException {
 		platformMapper.insertSelective(record);
 	}
 

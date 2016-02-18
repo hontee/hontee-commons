@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface FollowUserMapper {
+	
     int deleteByPrimaryKey(@Param("userId") Long userId, @Param("followId") Long followId);
 
     int insert(FollowUser record);

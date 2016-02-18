@@ -109,16 +109,6 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hontee.commons.db.entity.Category" >
-    insert into t_categories (id, name, title, 
-      description, parent, state, 
-      created, last_modified, create_by
-      )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{parent,jdbcType=BIGINT}, #{state,jdbcType=TINYINT}, 
-      #{created,jdbcType=TIMESTAMP}, #{lastModified,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT}
-      )
-  </insert>
   <insert id="insertSelective" parameterType="com.hontee.commons.db.entity.Category" >
     insert into t_categories
     <trim prefix="(" suffix=")" suffixOverrides="," >

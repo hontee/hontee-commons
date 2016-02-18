@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TrackMapper {
+	
     int countByExample(TrackExample example);
 
     int deleteByExample(TrackExample example);
@@ -13,8 +14,6 @@ public interface TrackMapper {
     int deleteByPrimaryKey(Long id);
     
     int deleteBatch(List<Long> list);
-
-    int insert(Track record);
 
     int insertSelective(Track record);
 
