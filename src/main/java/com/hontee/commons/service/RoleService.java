@@ -18,7 +18,7 @@ public interface RoleService extends Pager<Role, RoleExample> {
 
 	void add(Role record) throws Exception;
 
-	void addelective(Role record) throws Exception;
+	void addSelective(Role record) throws Exception;
 
 	List<Role> findByExample(RoleExample example) throws Exception;
 
@@ -29,5 +29,7 @@ public interface RoleService extends Pager<Role, RoleExample> {
 	void updateByExample(Role record, RoleExample example) throws Exception;
 
 	void updateByPrimaryKeySelective(Role record) throws Exception;
+	
+	void updateByPrimaryKey(Role record) throws Exception;
 
 }

@@ -248,9 +248,7 @@
       <if test="description != null" >
         description = #{description,jdbcType=VARCHAR},
       </if>
-      <if test="parent != null" >
         parent = #{parent,jdbcType=BIGINT},
-      </if>
       <if test="state != null" >
         state = #{state,jdbcType=TINYINT},
       </if>

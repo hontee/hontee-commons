@@ -41,7 +41,7 @@ public class RoleServiceImpl implements RoleService {
 		roleMapper.insert(record);
 	}
 
-	public void addelective(Role record) throws BusinessException {
+	public void addSelective(Role record) throws BusinessException {
 		roleMapper.insertSelective(record);
 	}
 
@@ -69,6 +69,10 @@ public class RoleServiceImpl implements RoleService {
 		PageHelper.startPage(p.getPage(), p.getRows(), p.getOrderByClause());
 		List<Role> list = this.findByExample(example);
 		return new PageInfo<Role>(list);
+	}
+
+	public void updateByPrimaryKey(Role record) throws Exception {
+		roleMapper.updateByPrimaryKey(record);
 	}
 
 }
