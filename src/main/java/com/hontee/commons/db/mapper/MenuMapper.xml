@@ -7,12 +7,11 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="parent" property="parent" jdbcType="BIGINT" />
+    <result column="group_field" property="groupField" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="TINYINT" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="last_modified" property="lastModified" jdbcType="TIMESTAMP" />
     <result column="create_by" property="createBy" jdbcType="BIGINT" />
-    <result column="ext_parent_title" property="extParentTitle" jdbcType="VARCHAR" />
     <result column="ext_create_name" property="extCreateName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -74,10 +73,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, title, description, url, parent, state, created, last_modified, create_by
+    id, name, title, description, url, group_field, state, created, last_modified, create_by
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hontee.commons.db.entity.MenuExample" >
-  	SELECT a.*, b.title AS ext_parent_title, u.name AS ext_create_name FROM (
+  	SELECT a.*, u.name AS ext_create_name FROM (
     select
     <if test="distinct" >
       distinct
@@ -91,12 +90,10 @@
       order by ${orderByClause}
     </if>
     ) a
-	LEFT JOIN sys_menus b ON a.parent = b.id
 	LEFT JOIN t_users u ON a.create_by = u.id
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    SELECT a.*, b.title AS ext_parent_title, u.name AS ext_create_name FROM sys_menus a
-	LEFT JOIN sys_menus b ON a.parent = b.id
+    SELECT a.*, u.name AS ext_create_name FROM sys_menus a
 	LEFT JOIN t_users u ON a.create_by = u.id
     where a.id = #{id,jdbcType=BIGINT}
   </select>
@@ -134,8 +131,8 @@
       <if test="url != null" >
         url,
       </if>
-      <if test="parent != null" >
-        parent,
+      <if test="groupField != null" >
+        group_field,
       </if>
       <if test="state != null" >
         state,
@@ -166,8 +163,8 @@
       <if test="url != null" >
         #{url,jdbcType=VARCHAR},
       </if>
-      <if test="parent != null" >
-        #{parent,jdbcType=BIGINT},
+      <if test="groupField != null" >
+        #{groupField,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         #{state,jdbcType=TINYINT},
@@ -207,8 +204,8 @@
       <if test="record.url != null" >
         url = #{record.url,jdbcType=VARCHAR},
       </if>
-      <if test="record.parent != null" >
-        parent = #{record.parent,jdbcType=BIGINT},
+      <if test="record.groupField != null" >
+        group_field = #{record.groupField,jdbcType=VARCHAR},
       </if>
       <if test="record.state != null" >
         state = #{record.state,jdbcType=TINYINT},
@@ -242,8 +239,8 @@
       <if test="url != null" >
         url = #{url,jdbcType=VARCHAR},
       </if>
-      <if test="parent != null" >
-        parent = #{parent,jdbcType=BIGINT},
+      <if test="groupField != null" >
+        group_field = #{groupField,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         state = #{state,jdbcType=TINYINT},

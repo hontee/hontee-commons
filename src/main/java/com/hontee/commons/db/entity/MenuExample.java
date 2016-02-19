@@ -445,63 +445,73 @@ public class MenuExample {
             return (Criteria) this;
         }
 
-        public Criteria andParentIsNull() {
-            addCriterion("parent is null");
+        public Criteria andGroupFieldIsNull() {
+            addCriterion("group_field is null");
             return (Criteria) this;
         }
 
-        public Criteria andParentIsNotNull() {
-            addCriterion("parent is not null");
+        public Criteria andGroupFieldIsNotNull() {
+            addCriterion("group_field is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParentEqualTo(Long value) {
-            addCriterion("parent =", value, "parent");
+        public Criteria andGroupFieldEqualTo(String value) {
+            addCriterion("group_field =", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentNotEqualTo(Long value) {
-            addCriterion("parent <>", value, "parent");
+        public Criteria andGroupFieldNotEqualTo(String value) {
+            addCriterion("group_field <>", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentGreaterThan(Long value) {
-            addCriterion("parent >", value, "parent");
+        public Criteria andGroupFieldGreaterThan(String value) {
+            addCriterion("group_field >", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentGreaterThanOrEqualTo(Long value) {
-            addCriterion("parent >=", value, "parent");
+        public Criteria andGroupFieldGreaterThanOrEqualTo(String value) {
+            addCriterion("group_field >=", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentLessThan(Long value) {
-            addCriterion("parent <", value, "parent");
+        public Criteria andGroupFieldLessThan(String value) {
+            addCriterion("group_field <", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentLessThanOrEqualTo(Long value) {
-            addCriterion("parent <=", value, "parent");
+        public Criteria andGroupFieldLessThanOrEqualTo(String value) {
+            addCriterion("group_field <=", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentIn(List<Long> values) {
-            addCriterion("parent in", values, "parent");
+        public Criteria andGroupFieldLike(String value) {
+            addCriterion("group_field like", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentNotIn(List<Long> values) {
-            addCriterion("parent not in", values, "parent");
+        public Criteria andGroupFieldNotLike(String value) {
+            addCriterion("group_field not like", value, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentBetween(Long value1, Long value2) {
-            addCriterion("parent between", value1, value2, "parent");
+        public Criteria andGroupFieldIn(List<String> values) {
+            addCriterion("group_field in", values, "groupField");
             return (Criteria) this;
         }
 
-        public Criteria andParentNotBetween(Long value1, Long value2) {
-            addCriterion("parent not between", value1, value2, "parent");
+        public Criteria andGroupFieldNotIn(List<String> values) {
+            addCriterion("group_field not in", values, "groupField");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupFieldBetween(String value1, String value2) {
+            addCriterion("group_field between", value1, value2, "groupField");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupFieldNotBetween(String value1, String value2) {
+            addCriterion("group_field not between", value1, value2, "groupField");
             return (Criteria) this;
         }
 

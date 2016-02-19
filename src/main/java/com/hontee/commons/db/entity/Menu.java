@@ -13,7 +13,7 @@ public class Menu {
 
     private String url;
 
-    private Long parent;
+    private String groupField;
 
     private Byte state;
 
@@ -67,15 +67,15 @@ public class Menu {
         this.url = url;
     }
 
-    public Long getParent() {
-        return parent;
-    }
+	public String getGroupField() {
+		return groupField;
+	}
 
-    public void setParent(Long parent) {
-        this.parent = parent;
-    }
+	public void setGroupField(String groupField) {
+		this.groupField = groupField;
+	}
 
-    public Byte getState() {
+	public Byte getState() {
         return state;
     }
 
