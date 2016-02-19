@@ -14,9 +14,10 @@
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="last_modified" property="lastModified" jdbcType="TIMESTAMP" />
     <result column="cat_id" property="catId" jdbcType="BIGINT" />
-    <result column="category" property="category" jdbcType="VARCHAR" />
     <result column="platforms" property="platforms" jdbcType="VARCHAR" />
     <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="ext_cat_title" property="extCatTitle" jdbcType="VARCHAR" />
+    <result column="ext_create_name" property="extCreateName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -78,9 +79,10 @@
   </sql>
   <sql id="Base_Column_List" >
     id, name, title, description, tags, url, hit, stars, state, created, last_modified, 
-    cat_id, category, platforms, create_by
+    cat_id, platforms, create_by
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hontee.commons.db.entity.PostExample" >
+  	SELECT a.*, c.title AS ext_cat_title, u.name AS ext_create_name from (
     select
     <if test="distinct" >
       distinct
@@ -93,12 +95,15 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    ) a
+	LEFT JOIN t_categories c ON a.cat_id = c.id
+	LEFT JOIN t_users u ON a.create_by = u.id
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from t_posts
-    where id = #{id,jdbcType=BIGINT}
+    SELECT a.*, c.title AS ext_cat_title, u.name AS ext_create_name from t_posts a
+	LEFT JOIN t_categories c ON a.cat_id = c.id
+	LEFT JOIN t_users u ON a.create_by = u.id
+    where a.id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_posts
@@ -155,9 +160,6 @@
       <if test="catId != null" >
         cat_id,
       </if>
-      <if test="category != null" >
-        category,
-      </if>
       <if test="platforms != null" >
         platforms,
       </if>
@@ -201,9 +203,6 @@
       </if>
       <if test="catId != null" >
         #{catId,jdbcType=BIGINT},
-      </if>
-      <if test="category != null" >
-        #{category,jdbcType=VARCHAR},
       </if>
       <if test="platforms != null" >
         #{platforms,jdbcType=VARCHAR},
@@ -258,9 +257,6 @@
       <if test="record.catId != null" >
         cat_id = #{record.catId,jdbcType=BIGINT},
       </if>
-      <if test="record.category != null" >
-        category = #{record.category,jdbcType=VARCHAR},
-      </if>
       <if test="record.platforms != null" >
         platforms = #{record.platforms,jdbcType=VARCHAR},
       </if>
@@ -307,9 +303,6 @@
       </if>
       <if test="catId != null" >
         cat_id = #{catId,jdbcType=BIGINT},
-      </if>
-      <if test="category != null" >
-        category = #{category,jdbcType=VARCHAR},
       </if>
       <if test="platforms != null" >
         platforms = #{platforms,jdbcType=VARCHAR},

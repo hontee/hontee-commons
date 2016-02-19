@@ -14,6 +14,8 @@
     <result column="cat_id" property="catId" jdbcType="BIGINT" />
     <result column="platforms" property="platforms" jdbcType="VARCHAR" />
     <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="ext_cat_title" property="extCatTitle" jdbcType="VARCHAR" />
+    <result column="ext_create_name" property="extCreateName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -78,6 +80,7 @@
     platforms, create_by
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hontee.commons.db.entity.ShareExample" >
+    select a.*, c.title AS ext_cat_title, u.name AS ext_create_name from (
     select
     <if test="distinct" >
       distinct
@@ -90,12 +93,15 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    ) a
+	LEFT JOIN t_categories c ON a.cat_id = c.id
+	LEFT JOIN t_users u ON a.create_by = u.id
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from t_shares
-    where id = #{id,jdbcType=BIGINT}
+    select a.*, c.title AS ext_cat_title, u.name AS ext_create_name from t_shares a
+	LEFT JOIN t_categories c ON a.cat_id = c.id
+	LEFT JOIN t_users u ON a.create_by = u.id
+    where a.id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_shares

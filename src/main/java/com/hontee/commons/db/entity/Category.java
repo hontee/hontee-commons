@@ -20,6 +20,10 @@ public class Category {
     private Date lastModified;
 
     private Long createBy;
+    
+    private String extParentTitle;
+    
+    private String extCreateName;
 
     public Long getId() {
         return id;
@@ -92,4 +96,21 @@ public class Category {
     public void setCreateBy(Long createBy) {
         this.createBy = createBy;
     }
+
+	public String getExtParentTitle() {
+		return extParentTitle;
+	}
+
+	public void setExtParentTitle(String extParentTitle) {
+		this.extParentTitle = extParentTitle;
+	}
+
+	public String getExtCreateName() {
+		return extCreateName;
+	}
+
+	public void setExtCreateName(String extCreateName) {
+		this.extCreateName = extCreateName;
+	}
+    
 }

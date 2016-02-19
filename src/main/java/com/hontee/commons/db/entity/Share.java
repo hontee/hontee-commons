@@ -26,6 +26,10 @@ public class Share {
     private String platforms;
 
     private Long createBy;
+    
+    private String extCatTitle;
+    
+    private String extCreateName;
 
     public Long getId() {
         return id;
@@ -122,4 +126,21 @@ public class Share {
     public void setCreateBy(Long createBy) {
         this.createBy = createBy;
     }
+
+	public String getExtCatTitle() {
+		return extCatTitle;
+	}
+
+	public void setExtCatTitle(String extCatTitle) {
+		this.extCatTitle = extCatTitle;
+	}
+
+	public String getExtCreateName() {
+		return extCreateName;
+	}
+
+	public void setExtCreateName(String extCreateName) {
+		this.extCreateName = extCreateName;
+	}
+    
 }

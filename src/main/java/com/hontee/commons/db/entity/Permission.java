@@ -18,6 +18,8 @@ public class Permission {
     private Date lastModified;
 
     private Long createBy;
+    
+    private String extCreateName;
 
     public Long getId() {
         return id;
@@ -82,4 +84,13 @@ public class Permission {
     public void setCreateBy(Long createBy) {
         this.createBy = createBy;
     }
+
+	public String getExtCreateName() {
+		return extCreateName;
+	}
+
+	public void setExtCreateName(String extCreateName) {
+		this.extCreateName = extCreateName;
+	}
+    
 }

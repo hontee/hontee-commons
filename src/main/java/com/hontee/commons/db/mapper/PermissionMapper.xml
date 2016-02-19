@@ -10,6 +10,7 @@
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="last_modified" property="lastModified" jdbcType="TIMESTAMP" />
     <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="ext_create_name" property="extCreateName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,6 +74,7 @@
     id, name, title, description, state, created, last_modified, create_by
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hontee.commons.db.entity.PermissionExample" >
+  	SELECT a.*, u.name AS ext_create_name FROM (
     select
     <if test="distinct" >
       distinct
@@ -85,12 +87,13 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    ) a
+	LEFT JOIN t_users u ON a.create_by = u.id
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from sys_permissions
-    where id = #{id,jdbcType=BIGINT}
+    SELECT a.*, u.name AS ext_create_name FROM sys_permissions a
+	LEFT JOIN t_users u ON a.create_by = u.id
+    where a.id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from sys_permissions

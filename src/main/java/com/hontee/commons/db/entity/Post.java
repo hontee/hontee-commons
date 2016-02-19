@@ -27,11 +27,13 @@ public class Post {
 
     private Long catId;
 
-    private String category;
-
     private String platforms;
 
     private Long createBy;
+    
+    private String extCatTitle;
+    
+    private String extCreateName;
 
     public Long getId() {
         return id;
@@ -129,14 +131,6 @@ public class Post {
         this.catId = catId;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getPlatforms() {
         return platforms;
     }
@@ -152,4 +146,21 @@ public class Post {
     public void setCreateBy(Long createBy) {
         this.createBy = createBy;
     }
+
+	public String getExtCatTitle() {
+		return extCatTitle;
+	}
+
+	public void setExtCatTitle(String extCatTitle) {
+		this.extCatTitle = extCatTitle;
+	}
+
+	public String getExtCreateName() {
+		return extCreateName;
+	}
+
+	public void setExtCreateName(String extCreateName) {
+		this.extCreateName = extCreateName;
+	}
+    
 }

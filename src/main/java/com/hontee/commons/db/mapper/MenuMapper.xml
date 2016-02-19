@@ -12,6 +12,8 @@
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="last_modified" property="lastModified" jdbcType="TIMESTAMP" />
     <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="ext_parent_title" property="extParentTitle" jdbcType="VARCHAR" />
+    <result column="ext_create_name" property="extCreateName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -75,6 +77,7 @@
     id, name, title, description, url, parent, state, created, last_modified, create_by
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hontee.commons.db.entity.MenuExample" >
+  	SELECT a.*, b.title AS ext_parent_title, u.name AS ext_create_name FROM (
     select
     <if test="distinct" >
       distinct
@@ -87,12 +90,15 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    ) a
+	LEFT JOIN sys_menus b ON a.parent = b.id
+	LEFT JOIN t_users u ON a.create_by = u.id
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from sys_menus
-    where id = #{id,jdbcType=BIGINT}
+    SELECT a.*, b.title AS ext_parent_title, u.name AS ext_create_name FROM sys_menus a
+	LEFT JOIN sys_menus b ON a.parent = b.id
+	LEFT JOIN t_users u ON a.create_by = u.id
+    where a.id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from sys_menus
