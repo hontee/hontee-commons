@@ -90,10 +90,6 @@ public class UserRealm extends AuthorizingRealm {
 			throw new UnknownAccountException("用户名或密码错误");
 		}
 		
-		if (list.size() != 1) {
-			throw new UnknownAccountException("用户无法识别");
-		}
-		
 		User currentUser = list.get(0); // 登录用户
 		
 		// 判断用户状态
